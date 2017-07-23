@@ -50,12 +50,15 @@ RUN yum update -y
 # install additional tools
 RUN yum install wget vim -y
 
+# add perl dependencies for oxldapsync
+RUN yum install perl perl-Log-Dispatch perl-Text-CSV_XS perl-Log-Log4perl -y 
+
 # add gpg key and import to keyring
 RUN wget http://software.open-xchange.com/oxbuildkey.pub -O - | gpg --import -
 
 # install open-xchange stuff
-RUN yum install mariadb-server open-exchange open-xchange-authentication-ldap oxldapsync open-xchange-grizzly \
+RUN yum install mariadb-server open-exchange open-xchange-authentication-ldap open-xchange-grizzly \
 		open-xchange-admin open-xchange-appsuite \
-		open-xchange-appsuite-backend open-xchange-appsuite-manifest -y
+		open-xchange-appsuite-backend open-xchange-appsuite-manifest oxldapsync -y
 # add binaries to PATH
 RUN echo PATH=$PATH:/opt/open-xchange/sbin/ >> ~/.bashrc && . ~/.bashrc
