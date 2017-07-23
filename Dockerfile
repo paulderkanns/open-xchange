@@ -7,7 +7,7 @@
 
 
 
-FROM centos 
+FROM centos:7.3.1611 
 MAINTAINER Paul Hoeß paul.hoess@gmail.com
 
 # add repo 
@@ -50,3 +50,5 @@ RUN wget http://software.open-xchange.com/oxbuildkey.pub -O - | gpg --import -
 RUN yum install mariadb-server open-exchange open-xchange-authentication-ldap open-xchange-grizzly \
 		open-xchange-admin open-xchange-appsuite \
 		open-xchange-appsuite-backend open-xchange-appsuite-manifest -y
+# add binaries to PATH
+RUN echo PATH=$PATH:/opt/open-xchange/sbin/ >> ~/.bashrc && . ~/.bashrc
