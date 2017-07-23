@@ -30,7 +30,7 @@ RUN { \
         echo 'metadata_expire = 0m'; \
 	echo '[oxldapsync]'; \
 	echo 'name = Open-Xchange'; \
-        echo 'baseurl = https://software.open-xchange.com/components/unsupported/oxldapsync/RHEL7/'; \
+        echo 'baseurl = https://software.open-xchange.com/components/unsupported/oxldapsync/RHEL6/'; \
         echo 'gpgkey = http://software.open-xchange.com/oxbuildkey.pub'; \
         echo 'enabled = 1'; \
         echo 'gpgcheck = 1'; \
