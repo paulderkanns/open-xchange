@@ -50,9 +50,6 @@ RUN yum update -y
 # install additional tools
 RUN yum install wget vim -y
 
-# add perl dependencies for oxldapsync
-RUN yum install perl perl-Log-Dispatch perl-Text-CSV_XS perl-Log-Log4perl -y 
-
 # add gpg key and import to keyring
 RUN wget http://software.open-xchange.com/oxbuildkey.pub -O - | gpg --import -
 
