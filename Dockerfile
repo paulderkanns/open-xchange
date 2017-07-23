@@ -47,6 +47,6 @@ RUN yum install wget vim -y
 RUN wget http://software.open-xchange.com/oxbuildkey.pub -O - | gpg --import -
 
 # install open-xchange stuff
-RUN yum install mariadb-server open-exchange open-xchange-authentication-database open-xchange-grizzly \
+RUN yum install mariadb-server open-exchange open-xchange-authentication-ldap open-xchange-grizzly \
 		open-xchange-admin open-xchange-appsuite \
 		open-xchange-appsuite-backend open-xchange-appsuite-manifest -y
