@@ -10,7 +10,7 @@
 FROM centos:6 
 MAINTAINER Paul Hoeß paul.hoess@gmail.com
 
-# add repo 
+# add ox.repo 
 RUN touch /etc/yum.repos.d/ox.repo
 RUN { \
 	echo '[ox-appsuiteui]'; \
@@ -28,14 +28,19 @@ RUN { \
         echo 'enabled = 1'; \
         echo 'gpgcheck = 1'; \
         echo 'metadata_expire = 0m'; \
+} > /etc/yum.repos.d/ox.repo 
+
+# add oxldapsync.repo
+RUN touch /etc/yum.repos.d/oxldapsync.repo
+RUN { \
 	echo '[oxldapsync]'; \
-	echo 'name = Open-Xchange'; \
+        echo 'name = Open-Xchange'; \
         echo 'baseurl = https://software.open-xchange.com/components/unsupported/oxldapsync/RHEL6/'; \
         echo 'gpgkey = http://software.open-xchange.com/oxbuildkey.pub'; \
         echo 'enabled = 1'; \
         echo 'gpgcheck = 1'; \
         echo 'metadata_expire = 0m'; \
-} > /etc/yum.repos.d/ox.repo 
+} > /etc/yum.repos.d/oxldapsync.repo
 
 # ultimativly trust this key
 # you need to adjust key id and options (1)
