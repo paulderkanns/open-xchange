@@ -7,7 +7,7 @@
 
 
 
-FROM centos:7.3.1611 
+FROM centos:6 
 MAINTAINER Paul Hoeß paul.hoess@gmail.com
 
 # add repo 
@@ -15,7 +15,7 @@ RUN touch /etc/yum.repos.d/ox.repo
 RUN { \
 	echo '[ox-appsuiteui]'; \
 	echo 'name = Open-Xchange-appsuiteui'; \
-	echo 'baseurl = http://software.open-xchange.com/products/appsuite/stable/appsuiteui/RHEL7/'; \
+	echo 'baseurl = http://software.open-xchange.com/products/appsuite/stable/appsuiteui/RHEL6/'; \
 	echo 'gpgkey = http://software.open-xchange.com/oxbuildkey.pub'; \
 	echo 'enabled = 1'; \
 	echo 'gpgcheck = 1'; \
@@ -23,7 +23,7 @@ RUN { \
 	echo  ;\
 	echo '[ox-backend]';\
 	echo 'name = Open-Xchange-backend'; \
-        echo 'baseurl = http://software.open-xchange.com/products/appsuite/stable/backend/RHEL7/'; \
+        echo 'baseurl = http://software.open-xchange.com/products/appsuite/stable/backend/RHEL6/'; \
         echo 'gpgkey = http://software.open-xchange.com/oxbuildkey.pub'; \
         echo 'enabled = 1'; \
         echo 'gpgcheck = 1'; \
