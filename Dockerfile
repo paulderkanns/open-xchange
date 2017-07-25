@@ -4,9 +4,6 @@
 # 														#
 #														#
 
-
-
-
 FROM centos:6 
 MAINTAINER Paul Hoeß paul.hoess@gmail.com
 
@@ -42,6 +39,7 @@ RUN { \
         echo 'metadata_expire = 0m'; \
 } > /etc/yum.repos.d/oxldapsync.repo
 
+# todo: create key check 
 # ultimativly trust this key
 # you need to adjust key id and options (1)
 # RUN gpg --edit-key XXXXXX
@@ -59,7 +57,7 @@ RUN yum install wget vim -y
 RUN wget http://software.open-xchange.com/oxbuildkey.pub -O - | gpg --import -
 
 # install open-xchange stuff
-RUN yum install mariadb-server open-exchange open-xchange-authentication-ldap open-xchange-grizzly \
+RUN yum install open-exchange open-xchange-authentication-ldap open-xchange-grizzly \
 		open-xchange-admin open-xchange-appsuite \
 		open-xchange-appsuite-backend open-xchange-appsuite-manifest oxldapsync -y
 # add binaries to PATH

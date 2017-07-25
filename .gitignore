@@ -1,3 +1,5 @@
 #ignore links
 *.webloc
 *.lnk
+perl_dependencies
+*.swp
